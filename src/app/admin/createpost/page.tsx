@@ -35,7 +35,7 @@ export default function createPost(){
             <div className="flex-row md:w-[80%] w-[95%]">
                 <h1 className="text-center mb-5 text-2xl font-semibold">New Blog Post</h1>
                 <input className="w-full mb-5 h-10 rounded-md border" required placeholder=" Title. . ." type="text" onChange={(e) => {setTitle(e.target.value)}} />
-                <textarea className="w-full min-h-16 max-h-64 border" required placeholder=" Content. .  ." onChange={(e) => {setContent(e.target.value)}} />
+                <textarea className="w-full min-h-16 max-h-64 rounded-md border" required placeholder=" Content. .  ." onChange={(e) => {setContent(e.target.value)}} />
                 <input className="w-full mb-5 h-10 rounded-md border" required placeholder=" Image URL" type="text" onChange={(e) => {setImageUrl(e.target.value)}} />
                 <input className="w-full mb-5 h-10 rounded-md border" required placeholder=" Short Description. . ." type="text" onChange={(e) => {setDesc(e.target.value)}} />
                 <input className="w-full mb-5 h-10 rounded-md border" required placeholder=" Tag. . ." type="text" onChange={(e) => {setTag(e.target.value)}} />
