@@ -21,7 +21,7 @@ export default function BlogCard(){
   })
 
     return(
-        <div className="flex justify-evenly mt-6">
+        <div>
         {postList.map((post, index) => (
           <Link key={uuidv4()} href={`/blog/${post.blogID}`}>
             <div className="scale-90 flex-row w-full h-[320px] shadow-md rounded-2xl cursor-pointer">
