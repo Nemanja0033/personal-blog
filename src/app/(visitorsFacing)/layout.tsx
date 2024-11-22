@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export const dynamic = "force-dynamic"
@@ -12,6 +13,7 @@ export default function HomeLayout({
         <body>
           <Navbar />
           {children}
+          <Footer />
         </body>
       </html>
     );
