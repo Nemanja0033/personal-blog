@@ -9,29 +9,39 @@ export default function BlogCard(){
 
   const [postList, setPostList] = useState<any[]>([]);
   const postCollectionRef = collection(db, "posts")
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getPosts = async () => {
       const q = query(postCollectionRef, orderBy("createdAt", "desc"));
       const data = await getDocs(q);
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false)
     };
 
     getPosts();
   })
 
+    if(loading){
+      return(
+        <div className="w-full flex justify-center">
+          <span className="loading loading-dots loading-md"></span>
+        </div>
+      )
+    }
+
     return(
         <div>
         {postList.map((post, index) => (
           <Link key={uuidv4()} href={`/blog/${post.blogID}`}>
-            <div className="scale-90 flex-row w-full h-[320px] shadow-md rounded-2xl cursor-pointer">
+            <div className="scale-90 flex-row w-full h-[320px] shadow-md rounded-md cursor-pointer">
             <div className="flex justify-center mt-3">
-              <img className="rounded-xl w-[90%] h-60" src={post.imgUrl} alt="" />
+              <img className="rounded w-[90%] h-60" src={post.imgUrl} alt="" />
             </div>
-            <div className="flex justify-center mb-2">
+            <div className="flex justify-start mb-2 ml-6 mt-3">
               <h1 className="text-xl font-semibold">{post.title}</h1>
             </div>
-            <div className="flex justify-center font-sans">
+            <div className="flex justify-start font-sans ml-6 mr-6">
               <h3>{post.desc}</h3>
             </div>
           </div>

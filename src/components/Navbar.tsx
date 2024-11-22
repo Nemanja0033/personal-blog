@@ -7,9 +7,9 @@ export default function Navbar(){
                 <span className="font-semibold">myBlog</span>
             </div>
             <div className="flex justify-center items-center gap-8 text-sm">
-                <Link className="border-l border-gray-800 pl-3" href={'/'}>Home</Link>
-                <Link href={'/blog'}>Blog</Link>
-                <Link href={'/about'}>About</Link>
+                <Link className=" hover:text-gray-200 border-l border-gray-800 pl-3" href={'/'}>Home</Link>
+                <Link className="hover:text-gray-200" href={'/blog'}>Blog</Link>
+                <Link className="hover:text-gray-200" href={'/about'}>About</Link>
             </div>
         </nav>
     )

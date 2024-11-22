@@ -2,8 +2,8 @@ import { ArrowRight, Github, Linkedin } from "lucide-react";
 
 export default function Heading(){
     return(
-        <div className="flex-row w-full mt-32 border-b border-gray-800">
-            <div className="flex md:justify-start justify-center mb-6">
+        <div className="flex-row w-full md:mt-40 mt-20">
+            <div className="flex md:justify-start justify-center mb-6 text-center">
                 <h1 className="font-semibold text-2xl">Welcome to my blog!</h1>
             </div>
             <div className="flex md:justify-start justify-center mb-6">
@@ -12,7 +12,7 @@ export default function Heading(){
             <div className="flex md:justify-start justify-center mb-6">
                 <p>Thanks for visiting my website.</p>
             </div>
-            <div className="flex md:justify-start justify-center mb-6">
+            <div className="flex md:justify-start justify-center text-center mb-8">
                 <p>On this site you can read my articles, follow <b>news and projects from programming.</b></p>
             </div>
             <div className="flex md:justify-start gap-4 justify-center mb-6">

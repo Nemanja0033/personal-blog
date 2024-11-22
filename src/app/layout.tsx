@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Blog | Home",
+  title: "Blog | Nemanja Antonijevic",
   description: "Nemanja Antonijevic's personal blog website",
 };
 

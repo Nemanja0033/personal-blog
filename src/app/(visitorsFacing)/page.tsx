@@ -7,7 +7,7 @@ export default function home(){
 
 
   return(
-    <div className="md:flex flex-row justify-center gap-6">
+    <div className="md:flex flex-row justify-center">
       <div className="md:w-1/2 w-full">
         <Heading />
       </div>
