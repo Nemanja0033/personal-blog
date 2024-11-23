@@ -41,8 +41,9 @@ export default function BlogCard(){
             <div className="flex justify-start mb-2 ml-6 mt-3">
               <h1 className="text-xl font-semibold">{post.title}</h1>
             </div>
-            <div className="flex justify-start font-sans ml-6 mr-6">
-              <h3>{post.desc}</h3>
+            <div className="flex justify-between font-sans ml-6 mr-6">
+              <span>{post.desc}</span>
+              <span className="text-gray-500 text-sm">{post.date}</span>
             </div>
           </div>
           </Link>
