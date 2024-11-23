@@ -22,10 +22,11 @@ export default function createPost(){
             desc,
             tag,
             date: new Date().toLocaleString('en-US', {
-                weekday: "long",
-                hour: '2-digit',
-                minute: '2-digit',
-            }),
+                month: 'long',   
+                day: '2-digit',  
+                hour: '2-digit',  
+                minute: '2-digit' 
+              }),
             createdAt: serverTimestamp(), 
             blogID: uuidv4(),
         })
