@@ -7,7 +7,7 @@ export default function Heading(){
                 <h1 className="font-semibold text-2xl">Welcome to my blog!</h1>
             </div>
             <div className="flex md:justify-start justify-center mb-6">
-                <p>I'm Nemanja, an <b>Forntend Web Developer</b> from Serbia.</p>
+                <p>I'm <b>Nemanja</b>, an <b>Forntend Web Developer</b> from Serbia.</p>
             </div>
             <div className="flex md:justify-start justify-center mb-6">
                 <p>Thanks for visiting my website.</p>
