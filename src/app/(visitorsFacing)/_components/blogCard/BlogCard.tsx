@@ -38,12 +38,12 @@ export default function BlogCard(){
             <div className="flex justify-center mt-3">
               <img className="rounded w-[90%] h-60" src={post.imgUrl} alt="" />
             </div>
-            <div className="flex justify-start mb-2 ml-6 mt-3">
-              <h1 className="text-xl font-semibold">{post.title}</h1>
+            <div className="flex justify-between mb-2 ml-6 mt-3">
+              <span className="text-xl font-semibold">{post.title}</span>
+              <span className="text-gray-500 text-sm mr-6">{post.date}</span>
             </div>
             <div className="flex justify-between font-sans ml-6 mr-6">
               <span>{post.desc}</span>
-              <span className="text-gray-500 text-sm">{post.date}</span>
             </div>
           </div>
           </Link>
