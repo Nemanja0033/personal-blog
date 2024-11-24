@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Heading(){
     return(
@@ -16,8 +17,8 @@ export default function Heading(){
                 <p>On this site you can read my articles, follow <b>news and projects from programming.</b></p>
             </div>
             <div className="flex md:justify-start gap-4 justify-center mb-6">
-                <button className="btn btn-active btn-neutral btn-sm">View Posts <ArrowRight size={16} /></button>
-                <button className="btn btn-active btn-neutral btn-sm">Contact me</button>
+                <Link href={'/blog'}><button className="btn btn-active btn-neutral btn-sm">View Posts <ArrowRight size={16} /></button></Link>
+                <Link href={'/about'}><button className="btn btn-active btn-neutral btn-sm">About Me</button></Link>
             </div>
         </div>
     )
