@@ -1,5 +1,5 @@
 export const about = {
-    aboutMe: "Hello! Im Nemanja, a certified frontend developer and coding enthusiast passionate about creating modern, user-friendly web applications. I am always open to new job opportunities and challenges that allow me to grow and contribute to innovative projects.I have an advanced understanding of JavaScript and TypeScript, which I use to build clean, maintainable, and visually appealing applications. I stay up-to-date with the latest frontend technologies and actively improve my skills",
+    aboutMe: "Hello! Im Nemanja, a certified frontend developer and coding enthusiast passionate about creating modern, user-friendly web applications. I am open for new job opportunities and challenges that allow me to grow and contribute to innovative projects.I have an advanced understanding of JavaScript and TypeScript, which I use to build clean, maintainable, and visually appealing applications. I stay up-to-date with the latest frontend technologies and actively improve my skills",
     certificate1: {
         link: 'https://www.credential.net/b135fc92-2dd1-4736-8282-c69012125472',
         name: 'JavaScript Specialist Certification',
