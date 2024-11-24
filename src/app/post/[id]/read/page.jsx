@@ -2,11 +2,11 @@ import { db } from "@/firebaseconfig";
 import { PostType } from "@/types/PostType";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
-export default async function ReadPost({ params: { id } }: { params: { id: any } }) {
+export default async function ReadPost({ params: { id } }) {
   const postRef = collection(db, "posts");
   const q = query(postRef, where("blogID", "==", id));
   const snapshot = await getDocs(q);
-  const post: any = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))[0] as any;
+  const post = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))[0]
 
   if (!post) {
     return  <div className="h-screen">
