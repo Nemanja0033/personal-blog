@@ -6,7 +6,7 @@ export default function About() {
 
     return (
         <div className="md:flex flex-row justify-start h-full w-full border-r ">
-            <div className="flex-row w-1/4 mt-12 md:ml-12">
+            <div className="flex justify-self-center w-1/4 mt-12 md:ml-12">
                 <div className="flex justify-center">
                     <div className="flex-row">
                         <a className="flex items-center" href="#about"><Link size={12} />About Me</a>
@@ -17,7 +17,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className="w-1/2 mt-12 border-l border-gray-700">
+            <div className="md:w-1/2 w-full mt-12 border-l border-gray-700">
                 <h1 className="text-center font-bold text-2xl mt-6" id="about">About Me</h1>
                 <div className="flex justify-center p-6">
                     <p>{aboutData.aboutMe}</p>

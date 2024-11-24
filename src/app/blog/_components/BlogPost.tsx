@@ -3,6 +3,7 @@
 import { db } from "@/firebaseconfig";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -38,7 +39,7 @@ export default function BlogPost(){
                         <span className="mt-3 ml-6 mr-3">{post.desc}</span>
                     </div>
                     <div className="flex justify-start mt-3">
-                        <button className="mt-3 ml-6 btn btn-sm">Read Article <ArrowRight /></button>
+                        <Link href={`/post/${post.blogID}/read`}><button className="mt-3 ml-6 btn btn-sm">Read Article <ArrowRight /></button></Link>
                     </div>
                 </div>
             ))}
