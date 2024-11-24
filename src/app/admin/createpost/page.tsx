@@ -4,7 +4,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 
-export default function createPost(){
+export default function CreatePost(){
 
     const [title, setTitle] = useState<string>("");
     const [content1, setContent1] = useState<string>("");
