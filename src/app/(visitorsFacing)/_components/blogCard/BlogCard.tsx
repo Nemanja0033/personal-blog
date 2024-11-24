@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function BlogCard(){
 
-  const [postList, setPostList] = useState<any[]>([]);
+  const [postList, setPostList] = useState<any []>([]);
   const postCollectionRef = collection(db, "posts")
   const [loading, setLoading] = useState<boolean>(true);
 
