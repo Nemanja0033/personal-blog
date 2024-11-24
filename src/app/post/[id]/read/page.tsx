@@ -1,8 +1,8 @@
-//@ts-ignore
+// @ts-ignore
 import { db } from "@/firebaseconfig";
 import { PostType } from "@/types/PostType";
 import { collection, query, where, getDocs } from "firebase/firestore";
-
+// @ts-ignore
 export default async function ReadPost({ params: { id } }: { params: { id: string } }) {
   const postRef = collection(db, "posts");
   const q = query(postRef, where("blogID", "==", id));
