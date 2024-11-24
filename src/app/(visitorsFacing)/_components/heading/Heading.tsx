@@ -1,10 +1,10 @@
-import { ArrowRight, Github, Linkedin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Heading(){
     return(
         <div className="flex-row w-full md:mt-40 mt-20">
             <div className="flex md:justify-start justify-center mb-6 text-center">
-                <h1 className="font-semibold text-2xl">Welcome to my blog!</h1>
+                <h1 className="font-bold text-3xl">Welcome to my blog!</h1>
             </div>
             <div className="flex md:justify-start justify-center mb-6">
                 <p>I'm <b>Nemanja</b>, an <b>Forntend Web Developer</b> from Serbia.</p>
@@ -18,10 +18,6 @@ export default function Heading(){
             <div className="flex md:justify-start gap-4 justify-center mb-6">
                 <button className="btn btn-active btn-neutral btn-sm">View Posts <ArrowRight size={16} /></button>
                 <button className="btn btn-active btn-neutral btn-sm">Contact me</button>
-            </div>
-            <div className="flex md:justify-start justify-center gap-4 mb-6">
-                <a href="https://github.com/Nemanja0033"><Github color="gray" size={20} /></a>
-                <a href="https://www.linkedin.com/in/nemanja-antonijevic-6baabb2a2/"><Linkedin color="gray" size={20} /></a>
             </div>
         </div>
     )
