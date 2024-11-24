@@ -25,6 +25,6 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": [
     "node_modules",
-    "src/app/post/[id]/page.tsx"
+    "src/app/post/[id]/read/page.tsx"
   ]
 }
