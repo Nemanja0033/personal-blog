@@ -7,6 +7,7 @@ export default function AdminNav(){
             <div className="flex gap-12 font-semibold">
                 <Link className="flex gap-2" href={'/'}><ArrowLeft size={18} />Home</Link>
                 <Link href={'/admin/createpost'}>New Post</Link>
+                <Link href={'/admin'}>Dashboard</Link>
             </div>
         </nav>
     )

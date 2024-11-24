@@ -10,7 +10,7 @@ interface Params {
 }
 
 export default async function ReadPost({ params }: Params) {
-  const { id } = params; // Ekstrakcija `id` iz params
+  const { id } = params;
 
   const postRef = collection(db, "posts");
   const q = query(postRef, where("blogID", "==", id));

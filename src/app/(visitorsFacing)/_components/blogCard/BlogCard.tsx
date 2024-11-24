@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function BlogCard(){
 
   const [postList, setPostList] = useState<any []>([]);
-  const postCollectionRef = collection(db, "posts")
+  const postCollectionRef = collection(db, "posts");
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function BlogCard(){
     }
 
     return(
-        <div>
+        <div className="flex-row">
         {postList.map((post, index) => (
           <Link key={uuidv4()} href={`/post/${post.blogID}/read`}>
             <div className="scale-90 flex-row w-full h-full shadow-md rounded-md cursor-pointer">
