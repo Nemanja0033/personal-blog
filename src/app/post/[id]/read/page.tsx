@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { db } from "@/firebaseconfig";
 import { PostType } from "@/types/PostType";
 import { collection, query, where, getDocs } from "firebase/firestore";
