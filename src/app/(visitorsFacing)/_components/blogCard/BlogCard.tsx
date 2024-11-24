@@ -33,7 +33,7 @@ export default function BlogCard(){
     return(
         <div>
         {postList.map((post, index) => (
-          <Link key={uuidv4()} href={`/blog/${post.blogID}`}>
+          <Link key={uuidv4()} href={`/post/${post.blogID}/read`}>
             <div className="scale-90 flex-row w-full h-[320px] shadow-md rounded-md cursor-pointer">
             <div className="flex justify-center mt-3">
               <img className="rounded w-[90%] h-60" src={post.imgUrl} alt="" />
