@@ -35,7 +35,7 @@ export default async function ReadPost({ params }: Params) {
         <div className="flex justify-center items-center mt-8">
           <span className="font-semibold text-2xl">{post.title}</span>
         </div>
-        <div className="flex justify-start mt-4">
+        <div className="flex justify-start md:ml-0 ml-3 mt-4">
           <span className="text-sm mr-6 text-gray-500">{post.date}</span>
         </div>
         <div className="flex justify-center mt-0 md:m-0 mx-3">

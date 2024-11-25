@@ -24,8 +24,8 @@ export default function BlogCard(){
 
     if(loading){
       return(
-        <div className="w-full flex justify-center">
-          <span className="loading loading-dots loading-md"></span>
+        <div className="w-full h-1/2 flex justify-center items-center">
+          <span className="loading loading-ring loading-lg"></span>
         </div>
       )
     }
@@ -34,7 +34,7 @@ export default function BlogCard(){
         <div className="flex-row">
         {postList.map((post, index) => (
           <Link key={uuidv4()} href={`/post/${post.blogID}/read`}>
-            <div className="scale-90 flex-row w-full h-full shadow-md rounded-md cursor-pointer">
+            <div className="scale-90 flex-row w-[400px] h-full shadow-md rounded-md cursor-pointer">
             <div className="flex justify-center mt-3">
               <img className="rounded w-[90%] h-60" src={post.imgUrl} alt="" />
             </div>
