@@ -25,7 +25,7 @@ export default function BlogCard(){
     if(loading){
       return(
         <div className="w-full h-1/2 flex justify-center items-center">
-          <span className="loading loading-ring loading-lg"></span>
+          <span className="loading loading-spinner loading-lg"></span>
         </div>
       )
     }
