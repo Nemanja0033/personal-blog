@@ -1,6 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import BlogCard from "./_components/blogCard/BlogCard";
-import Heading from "./_components/heading/Heading";
+import Heading from "./_components/blogCard/Heading";
 
 export default function home(){
 
