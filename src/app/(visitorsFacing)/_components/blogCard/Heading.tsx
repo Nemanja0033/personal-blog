@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Heading(){
@@ -14,8 +14,8 @@ export default function Heading(){
                 <p>Thanks for visiting my website.</p>
             </div>
             <div className="flex md:justify-start gap-4 justify-center mb-6">
-                <Link href={'/blog'}><button className="btn btn-active btn-neutral bg-primary text-neutral hover:text-white btn-sm">View Posts <ArrowRight size={16} /></button></Link>
-                <Link href='https://nemanja-antonijevic-portfolio.vercel.app/'><button className="btn btn-active btn-neutral bg-primary text-neutral hover:text-white btn-sm">My Portfoilo</button></Link>
+                <Link href={'/blog'}><button className="btn btn-active btn-neutral bg-neutral hover:text-white btn-sm">View Posts <ArrowRight size={16} /></button></Link>
+                <Link href='https://nemanja-antonijevic-portfolio.vercel.app/'><button className="btn btn-active btn-neutral bg-primary text-neutral hover:text-white btn-sm">My Portfoilo <ArrowUpRight size={16} /></button></Link>
             </div>
         </div>
     )

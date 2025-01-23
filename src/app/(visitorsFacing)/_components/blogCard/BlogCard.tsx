@@ -42,7 +42,7 @@ export default function BlogCard(){
               <img className="rounded w-[90%] h-60" src={post.imgUrl} alt="" />
             </div>
             <div className="flex justify-center mb-2 ml-6 mt-3">
-              <span className="text-xl font-semibold">{post.title}</span>
+              <span className="text-xl font-bold">{post.title}</span>
             </div>
             <div className="flex justify-center font-sans ml-6 mr-6">
               <span className="mb-3">{post.desc}</span>
