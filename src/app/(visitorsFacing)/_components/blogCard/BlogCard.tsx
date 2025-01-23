@@ -35,17 +35,17 @@ export default function BlogCard(){
         {postList.map((post, index) => (
           <Link key={uuidv4()} href={`/post/${post.blogID}/read`}>
             <div className="scale-90 flex-row w-[400px] h-full shadow-md rounded-md cursor-pointer">
+            <div className="flex justify-start ml-6 mb-3">
+              <span className="text-gray-500 text-xs mr-6">{post.date}</span>
+            </div>
             <div className="flex justify-center mt-3">
               <img className="rounded w-[90%] h-60" src={post.imgUrl} alt="" />
             </div>
-            <div className="flex justify-between mb-2 ml-6 mt-3">
+            <div className="flex justify-center mb-2 ml-6 mt-3">
               <span className="text-xl font-semibold">{post.title}</span>
             </div>
-            <div className="flex justify-between font-sans ml-6 mr-6">
-              <span>{post.desc}</span>
-            </div>
-            <div className="flex justify-end ml-6 mb-3">
-              <span className="text-gray-500 text-xs mr-6 mb-3">{post.date}</span>
+            <div className="flex justify-center font-sans ml-6 mr-6">
+              <span className="mb-3">{post.desc}</span>
             </div>
           </div>
           </Link>

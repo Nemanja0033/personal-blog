@@ -8,7 +8,7 @@ export default function CreatePost(){
 
     const [title, setTitle] = useState("");
     const [imgUrl, setImageUrl] = useState("");
-    const [content, setContent] = useState("")
+    const [content, setContent] = useState("");
     const [desc, setDesc] = useState("");
     const [tag, setTag] = useState("");
 

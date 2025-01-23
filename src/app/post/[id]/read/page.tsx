@@ -31,26 +31,16 @@ export default async function ReadPost({ params }: Params) {
 
   return (
     <div className="w-full h-full flex justify-center">
-      <div className="md:w-1/2 flex-row w-full h-full rounded">
-        <div className="flex justify-center items-center mt-8">
-          <span className="font-semibold text-2xl">{post.title}</span>
+      <div className="md:w-1/2 flex-row md:mt-12 w-full h-full rounded">
+        <div className="flex justify-start items-center mt-8">
+          <span className="font-bold text-3xl">{post.title}</span>
         </div>
-        <div className="flex justify-start md:ml-0 ml-3 mt-4">
+        <div className="flex justify-start md:ml-0 ml-3 mb-3   mt-4">
           <span className="text-sm mr-6 text-gray-500">{post.date}</span>
         </div>
         <div className="flex justify-center mt-0 md:m-0 mx-3">
-          <p className="md:tracking-wide tracking-wider md:text-md text-xl">
-            {post.content1}
-          </p>
-        </div>
-        <div className="flex justify-center md:mt-8 mt-6 md:m-0 mx-3">
-          <p className="md:tracking-wide tracking-wider md:text-md text-xl">
-            {post.content2}
-          </p>
-        </div>
-        <div className="flex justify-center md:mt-8 mt-6 md:m-0 mx-3">
-          <p className="md:tracking-wide tracking-wider md:text-md text-xl">
-            {post.content3}
+          <p className="md:tracking-wide tracking-widest md:text-md text-xl">
+            {post.content}
           </p>
         </div>
         <div className="w-full mt-5">
