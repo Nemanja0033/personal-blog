@@ -1,10 +1,9 @@
 import { ArrowDown } from "lucide-react";
-import BlogCard from "./_components/blogCard/BlogCard";
+import BlogCard from "./_components/blogCard/BlogCards";
 import Heading from "./_components/blogCard/Heading";
 
 export default function home(){
-
-
+  
   return(
     <div className="md:flex flex-row justify-center">
       <div className="md:w-1/2 w-full">

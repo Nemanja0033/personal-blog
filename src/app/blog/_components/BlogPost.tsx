@@ -1,5 +1,4 @@
 "use client"
-
 import { db } from "@/firebaseconfig";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { ArrowLeft, ArrowRight } from "lucide-react";
