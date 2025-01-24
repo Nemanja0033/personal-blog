@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Heading(){
     return(
-        <div className="flex-row w-full md:mt-40 mt-20">
+        <div className="flex-row w-full">
             <div className="flex md:justify-start justify-center mb-6 text-center">
                 <h1 className="font-bold text-3xl text-primary">Welcome to my blog!</h1>
             </div>
