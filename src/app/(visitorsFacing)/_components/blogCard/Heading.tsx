@@ -11,7 +11,7 @@ export default function Heading(){
     return(
         <div className={`flex-row w-full ${!isHidden ? 'mt-0' : 'mt-32'}`}>
             <div className="flex md:justify-start justify-center mb-6 text-center">
-                <h1 className="font-bold text-3xl text-primary">Welcome to my blog!</h1>
+                <h1 className="font-bold text-4xl">Welcome to my blog!</h1>
             </div>
             <div className="flex md:justify-start justify-center mb-6">
                 <p>Im <b>Nemanja</b>, an <b>Forntend Web Developer</b> from Serbia.</p>

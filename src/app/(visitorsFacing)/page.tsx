@@ -7,7 +7,7 @@ import { IsHiddenProvider } from "../context/isHiddenContext";
 export default function home(){
   
   return(
-    <div className="md:flex flex-row gap-4 justify-center">
+    <div className="md:flex flex-row justify-center">
       <div className="md:w-1/2 md:mt-6 mt-10 w-full">
         <IsHiddenProvider>
           <ContactForm />
