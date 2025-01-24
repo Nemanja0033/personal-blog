@@ -1,9 +1,15 @@
+"use client"
+import { IsHiddenContext } from "@/app/context/isHiddenContext";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useContext } from "react";
 
 export default function Heading(){
+    
+    const { isHidden } = useContext(IsHiddenContext)
+    
     return(
-        <div className="flex-row w-full">
+        <div className={`flex-row w-full ${!isHidden ? 'mt-0' : 'mt-32'}`}>
             <div className="flex md:justify-start justify-center mb-6 text-center">
                 <h1 className="font-bold text-3xl text-primary">Welcome to my blog!</h1>
             </div>
