@@ -1,11 +1,7 @@
 "use client"
-import { db } from "@/firebaseconfig";
 import { BlogCardType } from "@/types/BlogCardType";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from 'uuid';
 
 export default function BlogPost({date, tag, title, desc, blogID}: BlogCardType){
 
