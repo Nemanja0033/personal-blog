@@ -74,7 +74,7 @@ export default function ContactForm(){
                     </div>
     
                     <div className="flex md:justify-start justify-center items-center mt-3 mb-5">
-                        <button type="submit" className="btn w-[90%] h-12 btn-active btn-neutral bg-neutral animate-bounce hover:bg-primary hover:text-black btn-sm">Submit <Send size={16} /></button>
+                        <button type="submit" className="btn w-[90%] h-12 btn-active btn-neutral bg-neutral hover:animate-bounce hover:bg-primary hover:text-black btn-sm">Submit <Send size={16} /></button>
                     </div>
                 </div>
             </form>

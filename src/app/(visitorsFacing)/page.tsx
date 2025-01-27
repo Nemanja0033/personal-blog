@@ -8,7 +8,7 @@ export default function home(){
   
   return(
     <div className="md:flex flex-row justify-center">
-      <div className="md:w-1/2 md:mt-6 mt-10 w-full">
+      <div className="md:w-1/2 md:mt-12 mt-10 w-full">
         <IsHiddenProvider>
           <ContactForm />
           <Heading />

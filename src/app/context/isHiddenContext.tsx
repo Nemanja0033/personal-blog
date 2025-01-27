@@ -1,5 +1,5 @@
 "use client"
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 export const IsHiddenContext = createContext<any>(undefined);
 
