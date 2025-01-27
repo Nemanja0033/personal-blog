@@ -7,9 +7,10 @@ export default function Navbar(){
                <img className="w-12" src='./avatar.png' />
                <Link href={'/'}><span className="font-bold text-md cursor-pointer text-primary">myBlog</span></Link>
             </div>
-            <div className="flex justify-center md:mr-16 mr-0 items-center gap-8 text-sm">
+            <div className="flex justify-center md:mr-6 mr-0 items-center gap-8 text-sm">
                 <Link className=" hover:text-primary border-l border-gray-800 pl-3" href={'/'}>Home</Link>
                 <Link className="hover:text-primary" href={'/blog'}>Blog</Link>
+                <Link className="hover:text-primary" href={'/tags'}>Tags</Link>
             </div>
         </nav>
     )
