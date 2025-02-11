@@ -1,7 +1,9 @@
 // @ts-nocheck
-import { db } from "@/firebaseconfig";
+import { db } from "@/lib/firebaseconfig";
 import { PostType } from "@/types/PostType";
 import { collection, query, where, getDocs } from "firebase/firestore";
+
+//SSR rendering for read post page
 
 interface Params {
   params: {
@@ -11,11 +13,9 @@ interface Params {
 
 export default async function ReadPost({ params }: Params) {
   const { id } = params;
-
   const postRef = collection(db, "posts");
   const q = query(postRef, where("blogID", "==", id));
   const snapshot = await getDocs(q);
-
   const post: PostType | undefined = snapshot.docs
     .map((doc) => ({ ...doc.data(), id: doc.id }))[0] as PostType;
 

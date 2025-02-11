@@ -1,6 +1,6 @@
 "use client"
 import { IsHiddenContext } from "@/app/context/isHiddenContext";
-import { db } from "@/firebaseconfig";
+import { db } from "@/lib/firebaseconfig";
 import { addDoc, collection } from "firebase/firestore";
 import { Send, X } from "lucide-react";
 import { useContext, useState } from "react";

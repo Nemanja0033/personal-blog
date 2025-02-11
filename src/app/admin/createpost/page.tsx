@@ -1,5 +1,5 @@
 "use client"
-import { db } from "@/firebaseconfig";
+import { db } from "@/lib/firebaseconfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';

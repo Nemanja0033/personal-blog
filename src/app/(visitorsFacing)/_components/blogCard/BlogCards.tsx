@@ -1,38 +1,24 @@
-"use client"
-import { db } from "@/firebaseconfig";
+import { db } from "@/lib/firebaseconfig";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-export default function BlogCard(){
+// SSR rendering data for this component
 
-  const [postList, setPostList] = useState<any []>([]);
-  const postCollectionRef = collection(db, "posts");
-  const [loading, setLoading] = useState<boolean>(true);
+async function getPosts(){
+    const postCollectionRef = collection(db, 'posts');
+    const q = query(postCollectionRef, orderBy("createdAt", "desc"));
+    const data = await getDocs(q);
+    const post = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    return post;
+}
 
-  useEffect(() => {
-    const getPosts = async () => {
-      const q = query(postCollectionRef, orderBy("createdAt", "desc"));
-      const data = await getDocs(q);
-      setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      setLoading(false)
-    };
-
-    getPosts();
-  })
-
-    if(loading){
-      return(
-        <div className="w-full h-1/2 flex justify-center items-center">
-          <span className="loading loading-spinner loading-lg"></span>
-        </div>
-      )
-    }
+export default async function BlogCard(){
+  const postList = await getPosts();
 
     return(
         <div className="flex-row">
-        {postList.map((post, index) => (
+        {postList.map((post: any, index) => (
           <Link key={uuidv4()} href={`/post/${post.blogID}/read`}>
             <div className="scale-90 flex-row w-[400px] h-full shadow-md rounded-md cursor-pointer">
             <div className="flex justify-start ml-6 mb-3">

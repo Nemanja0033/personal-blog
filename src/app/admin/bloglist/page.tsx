@@ -1,5 +1,5 @@
 "use client"
-import { db } from "@/firebaseconfig";
+import { db } from "@/lib/firebaseconfig";
 import { collection, deleteDoc, doc, getDocs, orderBy, query } from "firebase/firestore";
 import { Edit, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -15,13 +15,22 @@ export default function BlogList(){
             const data = await getDocs(q);
             setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         }
-
         fetchPosts()
-    }, [postCollectionRef])
+    }, []);
+
+    console.log(postList)
 
     const deletePost = async (id: string) => {
         const post = doc(db, "posts", id);
         await deleteDoc(post);
+    }
+
+    if(postList.length === 0){
+      return(
+        <div className="flex justify-center items-center h-screen">
+          <span className="loading loading-spinner loading-md"></span>
+        </div>
+      )
     }
     
     return(

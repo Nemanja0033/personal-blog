@@ -1,6 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import BlogPost from "./_components/BlogPost";
-import { db } from "@/firebaseconfig";
+import { db } from "@/lib/firebaseconfig";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 
 async function getPosts(){
