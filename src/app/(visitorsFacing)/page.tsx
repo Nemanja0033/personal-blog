@@ -14,7 +14,7 @@ export default function home(){
           <Heading />
         </IsHiddenProvider>
       </div>
-      <div className="h-[420px] w-[410px] overflow-auto mt-20 border-l border-gray-800">
+      <div className="h-[420px] md:mx-0 mx-auto w-[410px] overflow-auto mt-20 border-l border-gray-800">
         <h1 className="flex justify-center items-center gap-1 textarea-md">Recent Posts <ArrowDown size={16} /></h1>
         <BlogCard />
       </div>
