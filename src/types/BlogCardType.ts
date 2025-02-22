@@ -3,5 +3,6 @@ export type BlogCardType = {
     title: string,
     desc: string,
     tag: string,
-    blogID: string
+    blogID: string,
+    imgUrl: string
 }
