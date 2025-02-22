@@ -49,7 +49,7 @@ export default function ContactForm(){
                             <X />
                     </button>
     
-                    <div className="flex justify-center items-center text-3xl font-bold">
+                    <div className="flex justify-center items-center text-xl font-bold">
                         <h1 className="md:text-start animate-pulse text-center">Are you a client or employer? Feel free to contact!</h1>
                     </div>
                     
@@ -65,7 +65,7 @@ export default function ContactForm(){
                     </div>
     
                     <div className="flex md:justify-start justify-center items-center mt-3 mb-5">
-                        <textarea className="w-[90%] min-h-20 max-h-20 rounded-md border shadow-md bg-primary "
+                        <textarea className="w-[90%] min-h-10 max-h-20 rounded-md border shadow-md bg-primary "
                                   name="message" 
                                   placeholder="Enter your messasge. . ." 
                                   required

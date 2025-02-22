@@ -17,7 +17,7 @@ export default async function BlogCard(){
   const postList = await getPosts();
 
     return(
-        <div className="flex-row">
+        <>
         {postList.map((post: any, index) => (
           <Link key={uuidv4()} href={`/post/${post.blogID}/read`}>
             <div className="scale-90 flex-row w-[400px] h-full shadow-md rounded-md cursor-pointer">
@@ -36,6 +36,6 @@ export default async function BlogCard(){
           </div>
           </Link>
         ))}
-      </div>
+        </>
     )
 }
