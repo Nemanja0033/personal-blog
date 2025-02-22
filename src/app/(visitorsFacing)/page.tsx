@@ -1,6 +1,5 @@
 import BlogCard from "./_components/blogCard/BlogCards";
 import Heading from "./_components/blogCard/Heading";
-import { IsHiddenProvider } from "../context/isHiddenContext";
 import { db } from "@/lib/firebaseconfig";
 import { collection, query, orderBy, getDocs, where } from "firebase/firestore";
 import Link from "next/link";
@@ -18,9 +17,8 @@ export default async function home(){
   const featuredPosts = await getFeaturedPosts();
 
   return(
-    <main className='w-full px-10 flex-row items-center'>
-      <IsHiddenProvider>
-          <section className="px-5">
+    <main className='w-full lg:px-64 px-5 flex-row items-center'>
+          <section className="px-5 w-full">
             <Heading />
             <div className="flex justify-between mt-3 mb-3 border-b py-2">
               <h1 className="md:text-2xl tex-md font-semibold">Feautured Posts</h1>
@@ -28,7 +26,7 @@ export default async function home(){
             </div>
           </section>
           
-          <section className="grid w-full md:grid-cols-3 grid-cols-1">
+          <section className="grid w-full md:grid-cols-2 grid-cols-1">
             {featuredPosts.map((p: any, i:any) => (
               <BlogCard title={p.title}
                         date={p.date}
@@ -40,7 +38,6 @@ export default async function home(){
                          />
             ))}
           </section>
-      </IsHiddenProvider>
     </main>
   )
 }
