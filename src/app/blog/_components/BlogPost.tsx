@@ -8,7 +8,7 @@ export default function BlogPost({date, tag, title, desc, blogID}: BlogCardType)
     return(
         <div>
             <div className="w-full h-56 shadow-md rounded mt-8 flex-row">
-                    <div className="flex justify-start text-sm text-gray-500">
+                    <div className="flex justify-start text-sm text-gray-300">
                         <span className="mt-3 ml-6">{date}</span>
                         <button className="mt-3 ml-6 btn btn-xs">{tag}</button>
                     </div>
