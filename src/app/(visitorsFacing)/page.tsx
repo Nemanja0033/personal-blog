@@ -18,7 +18,7 @@ export default async function home(){
 
   return(
     <main className='w-full lg:px-64 px-5 flex-row items-center'>
-          <section className="px-5 w-full">
+          <section className="w-full">
             <Heading />
             <div className="flex justify-between mt-3 mb-3 border-b py-2">
               <h1 className="md:text-2xl tex-md font-semibold">Feautured Posts</h1>
