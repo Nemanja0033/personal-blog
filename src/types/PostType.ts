@@ -1,10 +1,8 @@
 export type PostType = {
     id: string,
     title: string,
-    content1: string,
-    content2: string,
-    content3: string,
-    date: string,
+    content: string,
+    date: any,
     tag: string,
     imgUrl: string,
 }

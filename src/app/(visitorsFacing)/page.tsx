@@ -14,6 +14,7 @@ async function getFeaturedPosts(){
 
 export default async function home(){
   const featuredPosts = await getFeaturedPosts();
+
   return(
     <main className='w-full p-10 flex-row justify-center items-center'>
       <IsHiddenProvider>
@@ -21,7 +22,16 @@ export default async function home(){
             <Heading />
           </section>
           <section className="grid md:grid-cols-3 grid-cols-1">
-            <BlogCard />
+            {featuredPosts.map((p: any, i:any) => (
+              <BlogCard title={p.title}
+                        date={p.date}
+                        tag={p.tag}
+                        desc={p.desc}
+                        imgUrl={p.imgUrl}
+                        blogID={p.blogID}
+                        key={i}
+                         />
+            ))}
           </section>
       </IsHiddenProvider>
     </main>
