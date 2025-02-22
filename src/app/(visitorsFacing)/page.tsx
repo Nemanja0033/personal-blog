@@ -3,6 +3,8 @@ import Heading from "./_components/blogCard/Heading";
 import { IsHiddenProvider } from "../context/isHiddenContext";
 import { db } from "@/lib/firebaseconfig";
 import { collection, query, orderBy, getDocs, where } from "firebase/firestore";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 async function getFeaturedPosts(){
       const postCollectionRef = collection(db, 'posts');
@@ -20,10 +22,10 @@ export default async function home(){
       <IsHiddenProvider>
           <section className="px-5">
             <Heading />
-            <br />
-            <h1 className="text-2xl md:text-start text-center font-semibold">Feautured Posts</h1>
-            <br />
-            <hr />
+            <div className="flex justify-between mt-3 mb-3 border-b py-2">
+              <h1 className="md:text-2xl tex-md font-semibold">Feautured Posts</h1>
+              <Link className="flex btn bg-neutral btn-sm items-center hover:bg-white hover:text-black transition-all" href={'/blog'}>View All <ArrowUpRight size={18} /></Link>
+            </div>
           </section>
           
           <section className="grid w-full md:grid-cols-3 grid-cols-1">
