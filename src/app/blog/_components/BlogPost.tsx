@@ -19,7 +19,7 @@ export default function BlogPost({date, tag, title, desc, blogID}: BlogCardType)
                         <span className="mt-3 ml-6 mr-3">{desc}</span>
                     </div>
                     <div className="flex justify-start mt-3">
-                        <Link href={`/post/${blogID}/read`}><button className="mt-3 ml-6 btn btn-sm">Read Article <ArrowRight /></button></Link>
+                        <Link href={`/blog/${blogID}`}><button className="mt-3 ml-6 btn btn-sm">Read Article <ArrowRight /></button></Link>
                     </div>
                 </div>
         </div>

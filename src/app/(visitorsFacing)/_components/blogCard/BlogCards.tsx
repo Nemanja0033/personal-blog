@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function BlogCard({date, title, imgUrl, desc, blogID}: BlogCardType){
 
     return(
-          <Link href={`/post/${blogID}/read`}>
+          <Link href={`/blog/${blogID}`}>
             <div className="scale-90 flex-row border border-gray-500 hover:opacity-80 transition-all w-full h-full shadow-md rounded-md cursor-pointer">
             <div className="flex justify-center mt-3">
               <img className="rounded w-[90%] h-60" src={imgUrl} alt="" />
