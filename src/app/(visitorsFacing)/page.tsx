@@ -1,9 +1,10 @@
 import BlogCard from "./_components/blogCard/BlogCards";
 import Heading from "./_components/blogCard/Heading";
 import { db } from "@/lib/firebaseconfig";
-import { collection, query, orderBy, getDocs, where } from "firebase/firestore";
+import { collection, query, getDocs, where } from "firebase/firestore";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { unstable_cache } from "next/cache";
 
 async function getFeaturedPosts(){
       const postCollectionRef = collection(db, 'posts');
@@ -14,7 +15,8 @@ async function getFeaturedPosts(){
 }
 
 export default async function home(){
-  const featuredPosts = await getFeaturedPosts();
+  const getPosts = unstable_cache(getFeaturedPosts, ["feautured posts"], {revalidate: 86400 });
+  const featuredPosts = await getPosts();
 
   return(
     <main className='w-full lg:px-64 px-5 flex-row items-center'>

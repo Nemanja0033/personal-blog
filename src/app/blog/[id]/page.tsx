@@ -3,8 +3,6 @@ import { PostType } from "@/types/PostType";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { unstable_cache } from "next/cache";
 
-// SSR rendering for read post page
-
 interface Params {
   params: {
     id: string;
