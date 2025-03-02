@@ -14,8 +14,9 @@ async function getFeaturedPosts(){
       return post;
 }
 
+const getPosts = unstable_cache(getFeaturedPosts, ["feautured posts"], {revalidate: 86400 });
+
 export default async function home(){
-  const getPosts = unstable_cache(getFeaturedPosts, ["feautured posts"], {revalidate: 86400 });
   const featuredPosts = await getPosts();
 
   return(

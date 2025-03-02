@@ -1,13 +1,16 @@
 import { db } from "@/lib/firebaseconfig"
 import { collection, getDocs } from "firebase/firestore"
 import Link from "next/link";
+import { unstable_cache } from "next/cache";
 
-async function getTags() {
+async function fetchTags() {
     const collectionRef  = collection(db, "posts");
     const data = await getDocs(collectionRef);
     const tags = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return tags;
 }
+
+const getTags = unstable_cache(fetchTags, ["tags"], { revalidate: 8000});
 
 export default async function tags(){
     const tags = await getTags();
