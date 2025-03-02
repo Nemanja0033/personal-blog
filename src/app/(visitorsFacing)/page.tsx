@@ -5,6 +5,7 @@ import { collection, query, getDocs, where } from "firebase/firestore";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { unstable_cache } from "next/cache";
+import { PostSchema } from "@/lib/validations";
 
 async function getFeaturedPosts(){
       try{
@@ -12,7 +13,7 @@ async function getFeaturedPosts(){
         const q = query(postCollectionRef, where("feautured", "==", true));
         const data = await getDocs(q);
         const post = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        return post;
+        return post.map(post => PostSchema.parse(post));
       }
       catch(err){
         console.log(err);

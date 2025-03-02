@@ -1,5 +1,6 @@
 "use client"
 import { db } from "@/lib/firebaseconfig";
+import { PostSchema } from "@/lib/validations";
 import { collection, deleteDoc, doc, getDocs, orderBy, query } from "firebase/firestore";
 import { Edit, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -15,7 +16,7 @@ export default function BlogList(){
               setLoading(true);
               const q = query(postCollectionRef, orderBy("createdAt", "desc"));
               const data = await getDocs(q);
-              setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+              setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).map((p) => PostSchema.parse(p)));
               setLoading(false);
             }
             catch(err){
