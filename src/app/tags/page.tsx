@@ -17,9 +17,9 @@ export default async function tags(){
             <h1 className="text-center text-2xl font-bold mt-12">
                 All of the topics I've written about
             </h1>
-            <section className="grid grid-cols-8">
+            <section className="grid mt-5 w-full auto-cols-auto gap-2 place-items-center">
                 {tags.map((t: any) => (
-                    <Link href={`/tags/blog/${t.tag}`} className="btn btn-active btn-neutral w-[70%] bg-primary text-neutral hover:text-white btn-sm">{t.tag}</Link>
+                    <Link href={`/tags/${t.tag}`} className="btn btn-active btn-neutral w-[70%] bg-primary text-neutral hover:text-white btn-sm">{t.tag}</Link>
                 ))}
             </section>
         </div>

@@ -17,7 +17,7 @@ export default async function blog() {
   const posts = await getPosts();
 
     return(
-        <div className="h-screens px-64 w-full flex justify-center">
+        <div className="h-screens lg:px-64 px-5 w-full flex justify-center">
             <div className="flex-row mt-12 w-full">
                 <h1 className="text-center text-xl font-semibold flex justify-center items-center gap-1">Recent Posts <ArrowDown size={18} /></h1>
                 {posts.map((p: any) => (
