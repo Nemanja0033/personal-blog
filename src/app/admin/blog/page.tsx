@@ -5,15 +5,17 @@ import { Edit, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function BlogList(){
-
     const [postList, setPostList] = useState<any[]>([]);
     const postCollectionRef = collection(db, "posts");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchPosts = async () => {
+            setLoading(true);
             const q = query(postCollectionRef, orderBy("createdAt", "desc"));
             const data = await getDocs(q);
             setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+            setLoading(false);
         }
         fetchPosts()
     }, []);
@@ -25,19 +27,25 @@ export default function BlogList(){
         await deleteDoc(post);
     }
 
-    if(postList.length === 0){
+    if(loading){
       return(
         <div className="flex justify-center items-center h-screen">
           <span className="loading loading-spinner loading-md"></span>
         </div>
       )
     }
+
+    if(postList.length === 0 && !loading){
+      <div className="flex justify-center items-center h-screen">
+        <h1>Error while fetching posts</h1>
+      </div>
+    }
     
     return(
         <div className="flex-row mt-12">
             <h1 className="text-center text-2xl font-bold mt-3">Blog List</h1>
             <h3 className="text-center">Posts: {postList.length}</h3>
-        {postList.map((post, index) => (
+            {postList.map((post, index) => (
             <div key={post.blogID} className="scale-90 flex-row w-full h-full shadow-md rounded-md cursor-pointer">
             <div className="flex justify-between items-center mb-2 ml-6 mt-3">
               <span className="text-xl font-semibold">{post.title}</span>
