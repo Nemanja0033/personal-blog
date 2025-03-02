@@ -8,7 +8,7 @@ export default function admin(){
                 <div className="flex-row text-center mt-20 items-center">
                     <h1 className="text-xl font-semibold">Blog List</h1>
                     <div className="flex justify-center mt-6 cursor-pointer">
-                        <Link href={'/admin/bloglist'}><Edit /></Link>
+                        <Link href={'/admin/blog'}><Edit /></Link>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@ export default function admin(){
                 <div className="flex-row mt-20 text-center h-full items-center">
                     <h1 className="text-xl font-semibold">Add New Blog Post</h1>
                     <div className="flex justify-center mt-6 cursor-pointer">
-                        <Link href={'/admin/createpost'}><NewspaperIcon /></Link>
+                        <Link href={'/admin/blog/create'}><NewspaperIcon /></Link>
                     </div>
                 </div>
             </div>
