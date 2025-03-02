@@ -11,11 +11,16 @@ export default function BlogList(){
 
     useEffect(() => {
         const fetchPosts = async () => {
-            setLoading(true);
-            const q = query(postCollectionRef, orderBy("createdAt", "desc"));
-            const data = await getDocs(q);
-            setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-            setLoading(false);
+            try{
+              setLoading(true);
+              const q = query(postCollectionRef, orderBy("createdAt", "desc"));
+              const data = await getDocs(q);
+              setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+              setLoading(false);
+            }
+            catch(err){
+              console.log(err);
+            }
         }
         fetchPosts()
     }, []);

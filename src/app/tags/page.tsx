@@ -4,10 +4,16 @@ import Link from "next/link";
 import { unstable_cache } from "next/cache";
 
 async function fetchTags() {
-    const collectionRef  = collection(db, "posts");
-    const data = await getDocs(collectionRef);
-    const tags = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    return tags;
+    try{
+        const collectionRef  = collection(db, "posts");
+        const data = await getDocs(collectionRef);
+        const tags = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        return tags;
+    }
+    catch(err){
+        console.log(err);
+        return []
+    }
 }
 
 const getTags = unstable_cache(fetchTags, ["tags"], { revalidate: 8000});

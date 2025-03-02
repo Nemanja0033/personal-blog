@@ -7,11 +7,17 @@ import { ArrowUpRight } from "lucide-react";
 import { unstable_cache } from "next/cache";
 
 async function getFeaturedPosts(){
-      const postCollectionRef = collection(db, 'posts');
-      const q = query(postCollectionRef, where("feautured", "==", true));
-      const data = await getDocs(q);
-      const post = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      return post;
+      try{
+        const postCollectionRef = collection(db, 'posts');
+        const q = query(postCollectionRef, where("feautured", "==", true));
+        const data = await getDocs(q);
+        const post = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        return post;
+      }
+      catch(err){
+        console.log(err);
+        return []
+      }
 }
 
 const getPosts = unstable_cache(getFeaturedPosts, ["feautured posts"], {revalidate: 86400 });
@@ -30,16 +36,23 @@ export default async function home(){
           </section>
           
           <section className="grid w-full md:grid-cols-2 grid-cols-1">
-            {featuredPosts.map((p: any, i:any) => (
-              <BlogCard title={p.title}
-                        date={p.date}
-                        tag={p.tag}
-                        desc={p.desc}
-                        imgUrl={p.imgUrl}
-                        blogID={p.blogID}
-                        key={i}
-                         />
-            ))}
+            {featuredPosts.length !== 0 ?
+            (
+              featuredPosts.map((p: any, i:any) => (
+                <BlogCard title={p.title}
+                          date={p.date}
+                          tag={p.tag}
+                          desc={p.desc}
+                          imgUrl={p.imgUrl}
+                          blogID={p.blogID}
+                          key={i}
+                           />
+              ))
+            )
+            :
+            (<div>
+              <h1>Something went wrong refresh page!</h1>
+            </div>)}
           </section>
     </main>
   )

@@ -5,11 +5,17 @@ import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { unstable_cache } from "next/cache";
 
 async function fetchPosts(){
-      const postCollectionRef = collection(db, 'posts');
-      const q = query(postCollectionRef, orderBy("createdAt", "desc"));
-      const data = await getDocs(q);
-      let posts = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      return posts
+      try{
+        const postCollectionRef = collection(db, 'posts');
+        const q = query(postCollectionRef, orderBy("createdAt", "desc"));
+        const data = await getDocs(q);
+        let posts = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        return posts;
+      }
+      catch(err){
+        console.log(err);
+        return [];
+      }
 }
 
 const getPosts = unstable_cache(fetchPosts, ["posts"], { revalidate: 86400})

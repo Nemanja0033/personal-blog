@@ -10,11 +10,17 @@ interface Params {
 }
 
 async function fetchPost(id: string) {
-  const postRef = collection(db, "posts");
-  const q = query(postRef, where("blogID", "==", id));
-  const snapshot = await getDocs(q);
-  const post: PostType | undefined = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0] as PostType;
-  return post;
+  try{
+    const postRef = collection(db, "posts");
+    const q = query(postRef, where("blogID", "==", id));
+    const snapshot = await getDocs(q);
+    const post: PostType | undefined = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0] as PostType;
+    return post;
+  }
+  catch(err){
+    console.log(err);
+    return [];
+  }
 }
 
 export default async function ReadPost({ params }: Params) {
@@ -22,7 +28,7 @@ export default async function ReadPost({ params }: Params) {
 
   const getPost = unstable_cache(() => fetchPost(id), [`post ${id}`], { revalidate: 86400 });
 
-  const post = await getPost();
+  const post: any = await getPost();
 
   
   return (
