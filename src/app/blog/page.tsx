@@ -3,13 +3,14 @@ import BlogPost from "./_components/BlogPost";
 import { db } from "@/lib/firebaseconfig";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { unstable_cache } from "next/cache";
+import { PostSchema } from "@/lib/validations";
 
 async function fetchPosts(){
       try{
         const postCollectionRef = collection(db, 'posts');
         const q = query(postCollectionRef, orderBy("createdAt", "desc"));
         const data = await getDocs(q);
-        let posts = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        let posts = data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).map((p) => PostSchema.parse(p));
         return posts;
       }
       catch(err){
@@ -19,7 +20,6 @@ async function fetchPosts(){
 }
 
 const getPosts = unstable_cache(fetchPosts, ["posts"], { revalidate: 86400})
-
 
 export default async function blog() {
 
