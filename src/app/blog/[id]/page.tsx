@@ -1,9 +1,9 @@
-// @ts-nocheck
 import { db } from "@/lib/firebaseconfig";
 import { PostType } from "@/types/PostType";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { unstable_cache } from "next/cache";
 
-//SSR rendering for read post page
+// SSR rendering for read post page
 
 interface Params {
   params: {
@@ -11,24 +11,22 @@ interface Params {
   };
 }
 
-export default async function ReadPost({ params }: Params) {
-  const { id } = params;
+async function fetchPost(id: string) {
   const postRef = collection(db, "posts");
   const q = query(postRef, where("blogID", "==", id));
   const snapshot = await getDocs(q);
-  const post: PostType | undefined = snapshot.docs
-    .map((doc) => ({ ...doc.data(), id: doc.id }))[0] as PostType;
+  const post: PostType | undefined = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0] as PostType;
+  return post;
+}
 
-  if (!post) {
-    return (
-      <div className="h-screen">
-        <h1 className="text-center font-semibold text-2xl mt-32">
-          Post not found
-        </h1>
-      </div>
-    );
-  }
+export default async function ReadPost({ params }: Params) {
+  const { id } = params;
 
+  const getPost = unstable_cache(() => fetchPost(id), [`post ${id}`], { revalidate: 86400 });
+
+  const post = await getPost();
+
+  
   return (
     <div className="w-full h-full flex justify-center">
       <div className="md:w-1/2 flex-row md:mt-12 w-full h-full rounded">
