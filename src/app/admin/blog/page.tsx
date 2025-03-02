@@ -36,9 +36,11 @@ export default function BlogList(){
     }
 
     if(postList.length === 0 && !loading){
-      <div className="flex justify-center items-center h-screen">
-        <h1>Error while fetching posts</h1>
-      </div>
+      return(
+        <div className="flex justify-center items-center h-screen">
+          <h1>Error while fetching posts</h1>
+        </div>
+      )
     }
     
     return(
