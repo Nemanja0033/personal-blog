@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
 
-
 export async function middleware(req: NextRequest) {
   if ((await isAuthenticated(req)) === false) {
     return new NextResponse("Unauthorized", {
@@ -11,8 +10,7 @@ export async function middleware(req: NextRequest) {
 }
 
 async function isAuthenticated(req: NextRequest) {
-  const authHeader =
-    req.headers.get("authorization") || req.headers.get("Authorization")
+  const authHeader = req.headers.get("authorization") || req.headers.get("Authorization")
 
   if (authHeader == null) return false
 
@@ -21,8 +19,8 @@ async function isAuthenticated(req: NextRequest) {
     .split(":")
 
   return (
-    username === 'nemanja03' && 
-    password === 'necacar003')
+    username === process.env.NEXT_PUBLIC_USERNAME && 
+    password === process.env.NEXT_PUBLIC_PASSWORD)
 }
 
 export const config = {

@@ -6,7 +6,6 @@ import { useRef, useState } from "react";
 
 
 export default function ContactForm(){
-
     const [contactData, setContactData] = useState('');
     const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -21,7 +20,7 @@ export default function ContactForm(){
             inputRef.current!.value = ''
         }
         catch(err){
-            console.log('Error while sending message', err);
+            alert('Error while sending message');
         }
     }
 

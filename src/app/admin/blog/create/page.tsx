@@ -21,6 +21,7 @@ export default function CreatePost(){
             desc,
             tag,
             date: new Date().toLocaleString('en-US', {
+                year: 'numeric',
                 month: 'long',   
                 day: '2-digit',  
                 hour: '2-digit',  
@@ -28,6 +29,7 @@ export default function CreatePost(){
               }),
             createdAt: serverTimestamp(), 
             blogID: uuidv4(),
+            feautured: false
         })
         alert('Blog post created!');
     }

@@ -1,4 +1,3 @@
-import BlogCard from "./_components/blogCard/BlogCards";
 import Heading from "./_components/blogCard/Heading";
 import { db } from "@/lib/firebaseconfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
@@ -6,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { unstable_cache } from "next/cache";
 import { PostSchema } from "@/lib/validations";
+import BlogPost from "../blog/_components/BlogPost";
 
 async function getFeaturedPosts(){
       try{
@@ -24,10 +24,11 @@ async function getFeaturedPosts(){
 const getPosts = unstable_cache(getFeaturedPosts, ["feautured posts"], {revalidate: 86400 });
 
 export default async function home(){
-  const featuredPosts = await getPosts();
+  const featuredPosts = await getFeaturedPosts();
 
-  return(
-    <main className='w-full lg:px-64 px-5 flex-row items-center'>
+  if(featuredPosts){
+    return (
+      <main className='w-full lg:px-64 px-5 flex-row items-center'>
           <section className="w-full mt-12">
             <Heading />
             <div className="flex justify-between mt-16 mb-3 border-b py-2">
@@ -36,25 +37,19 @@ export default async function home(){
             </div>
           </section>
           
-          <section className="grid w-full md:grid-cols-2 grid-cols-1">
-            {featuredPosts.length !== 0 ?
-            (
-              featuredPosts.map((p: any, i:any) => (
-                <BlogCard title={p.title}
-                          date={p.date}
-                          tag={p.tag}
-                          desc={p.desc}
-                          imgUrl={p.imgUrl}
-                          blogID={p.blogID}
-                          key={i}
-                           />
-              ))
-            )
-            :
-            (<div>
-              <h1>Something went wrong refresh page!</h1>
-            </div>)}
+          <section className="grid w-full md:grid-cols-2 gap-3 grid-cols-1">
+            {featuredPosts.map((p: any) => (
+                <BlogPost 
+                  imgUrl={p.imgUrl}
+                  date={p.date}                
+                  title={p.title}                 
+                  desc={p.desc}                  
+                  tag={p.tag} 
+                  blogID={p.blogID} 
+                  />
+                ))}
           </section>
     </main>
-  )
+    )
+  }
 }

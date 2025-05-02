@@ -5,4 +5,5 @@ export type PostType = {
     date: any,
     tag: string,
     imgUrl: string,
+    feautured: boolean
 }

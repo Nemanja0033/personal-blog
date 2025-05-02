@@ -7,7 +7,7 @@ export const PostSchema = z.object({
     title: z.string(),
     desc: z.string(),
     tag: z.string(),
-    feautured: z.boolean()
+    feautured: z.boolean() || z.undefined()
 });
 
 export type PostType = z.infer<typeof PostSchema>;

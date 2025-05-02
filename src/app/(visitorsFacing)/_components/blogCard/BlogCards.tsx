@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function BlogCard({date, title, imgUrl, desc, blogID}: BlogCardType){
 
     return(
-          <Link href={`/blog/${blogID}`}>
-            <div className="scale-90 flex-row border border-gray-500 hover:opacity-80 transition-all w-full h-full shadow-md rounded-md cursor-pointer">
+        <Link href={`/blog/${blogID}`}>
+            <div className="scale-90 flex-row border border-gray-900 hover:opacity-80 transition-all md:w-[350px] w-full h-full shadow-md rounded-md cursor-pointer">
             <div className="flex justify-center mt-3">
               <img className="rounded w-[90%] h-60" src={imgUrl} alt="" />
             </div>
@@ -19,7 +19,6 @@ export default function BlogCard({date, title, imgUrl, desc, blogID}: BlogCardTy
               <span className="text-gray-500 text-xs mr-6">{date}</span>
             </div>
           </div>
-          
-          </Link>
+        </Link>
     )
 }

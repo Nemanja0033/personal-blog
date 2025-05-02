@@ -32,7 +32,7 @@ export default async function ReadPost({ params }: Params) {
 
   
   return (
-    <div className="w-full h-full flex justify-center">
+    <div className="w-full px-3 h-full flex justify-center">
       <div className="md:w-1/2 flex-row md:mt-12 w-full h-full rounded">
         <div className="flex justify-start items-center mt-8">
           <span className="font-bold text-3xl">{post.title}</span>
