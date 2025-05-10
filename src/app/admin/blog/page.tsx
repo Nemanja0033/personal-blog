@@ -30,9 +30,15 @@ export default function BlogList(){
     }, []);
 
     const deletePost = async (id: string) => {
-        const post = doc(db, "posts", id);
-        console.log(post)
-        await deleteDoc(post);
+        try{
+          const post = doc(db, "posts", id);
+          console.log(post);
+          await deleteDoc(post);
+          alert('Post succesfully deleted');
+        }
+        catch(err){
+          console.log(err);
+        }
     }
 
     const setFeauturedPost = async (id: string) => {
