@@ -2,7 +2,8 @@
 import { db } from "@/lib/firebaseconfig";
 import { PostSchema } from "@/lib/validations";
 import { collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc, where } from "firebase/firestore";
-import { Edit, Star, StarOff, Trash } from "lucide-react";
+import { Edit, EditIcon, Star, StarOff, Trash } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function BlogList(){
@@ -93,8 +94,9 @@ export default function BlogList(){
             <div className="flex justify-between items-center mb-2 ml-6 mt-3">
               <span className="text-xl font-semibold">{post.title}</span>
               <div className="flex gap-2 mr-6">
-                <button onClick={() => deletePost(post.blogID)} className="btn btn-sm bg-red-400"><Trash /></button>
-                {post.feautured === false ? <button className="bg-green-400 btn btn-sm text-white" onClick={() => setFeauturedPost(post.blogID)}><Star /></button> : <button onClick={() => removeFeauturedPost(post.blogID)} className="btn btn-sm bg-red-400"><StarOff /></button>}
+                <button onClick={() => deletePost(post.blogID)} className="btn btn-sm bg-red-400 text-white"><Trash /></button>
+                <Link href={`/admin/blog/edit/${post.blogID}`} className="bg-blue-400 btn btn-sm text-white"><EditIcon /></Link>              
+                {post.feautured === false ? <button className="bg-green-400 btn btn-sm text-white" onClick={() => setFeauturedPost(post.blogID)}><Star /></button> : <button onClick={() => removeFeauturedPost(post.blogID)} className="btn btn-sm bg-red-400 text-white"><StarOff /></button>}
               </div>
             </div>
             <div className="flex justify-between font-sans ml-6 mr-6">

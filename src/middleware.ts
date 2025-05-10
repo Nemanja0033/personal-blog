@@ -19,8 +19,8 @@ async function isAuthenticated(req: NextRequest) {
     .split(":")
 
   return (
-    username === process.env.NEXT_PUBLIC_USERNAME && 
-    password === process.env.NEXT_PUBLIC_PASSWORD)
+    username === 'admin' && 
+    password === 'admin')
 }
 
 export const config = {
